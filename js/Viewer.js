@@ -24,7 +24,7 @@ let gui,bbox;
 const params = {
 
     clearPass: true,
-    clearColor: 'white',
+    clearColor: 'black',
 
     Metalness: 0.5,
     Roughness: 0.5,
@@ -45,7 +45,7 @@ function clearGui() {
 
     gui = new GUI();
 
-    gui.add(params, 'clearColor', ['black', 'white']);//,'red', 'green', 'blue' ] );
+    gui.add(params, 'BackGroundColor', ['black', 'white']);//,'red', 'green', 'blue' ] );
 
 
     gui.add(params, 'exposure', 0.1, 2).onChange(function (value) {
