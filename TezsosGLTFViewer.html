@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - postprocessing - unreal bloom</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="main.css">
+		<style>
+		#info > * {
+			max-width: 650px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		</style>
+	</head>
+	<body> 
+
+		<div id="container"></div>
+
+		<div id="info">
+		
+		</div>
+
+
+
+
+		<script>
+			const modelViewer = document.getElementById("viewer")
+			const progress = document.getElementById('progress');
+			const bar = document.getElementById('bar');
+	
+			const query = "https://ipfs.io/ipfs/" + window.location.search.substring(1).split('=')[1];
+	
+			modelViewer.setAttribute("src", query)
+	
+			modelViewer.addEventListener('progress', (event) => {
+				const { totalProgress } = event.detail;
+				progress.classList.toggle('show', totalProgress < 1);
+				bar.style.transform = scaleX(${totalProgress});
+			});
+		</script>
+
+		<script type ="module" src = "js/Viewer.js"></script>
+
+	</body>
+
+</html>
