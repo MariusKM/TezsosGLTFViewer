@@ -18,7 +18,7 @@ import { CopyShader } from 'https://cdn.skypack.dev/three@0.127.0/examples/jsm/s
 let scene, renderer, composer, light, light2, light3, model, AmbientLight;
 let clearPass, renderPass, exrCubeRenderTarget;
 let cameraP;
-let gui;
+let gui,bbox;
 
 
 const params = {
@@ -83,7 +83,7 @@ function clearGui() {
     gui.add(params, 'SceneLightStrength', 0.1, 5).onChange(function (value) {
 
         light.intensity = value;
-        light2.intensity = value;
+     
         light3.intensity = value;
     });
 
@@ -125,7 +125,7 @@ function init() {
 
     cameraP = new THREE.PerspectiveCamera(65, aspect, 1, 10);
     cameraP.position.z = 2;
-    cameraP.position.z = 2;
+    cameraP.position.y = 2;
 
     scene = new THREE.Scene();
 
@@ -170,7 +170,7 @@ function init() {
 
         model.traverse((child) => {
             if (child.isMesh) {
-
+          
                 let material = child.material;
                 material.envMap = exrCubeRenderTarget.texture;
                 material.envMapIntensity = params.EnvMapIntensity*14;
@@ -178,9 +178,12 @@ function init() {
 
             }
         });
-        model.position.y = -1;
+        model.position.y = -1.2;
         scene.add(model);
+       
     });
+   
+
 
 
     composer = new EffectComposer(renderer);
