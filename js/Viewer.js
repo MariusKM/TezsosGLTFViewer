@@ -1,7 +1,7 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.127.0/build/three.module.js';
 
 
-import Stats from 'https://cdn.skypack.dev/three@0.127.0/examples/jsm/libs/stats.module.js';
+
 
 import { GUI } from 'https://cdn.skypack.dev/three@0.127.0/examples/jsm/libs/dat.gui.module.js';
 
@@ -18,7 +18,7 @@ import { CopyShader } from 'https://cdn.skypack.dev/three@0.127.0/examples/jsm/s
 let scene, renderer, composer, light, light2, light3, model, AmbientLight;
 let clearPass, renderPass, exrCubeRenderTarget;
 let cameraP;
-let gui, stats;
+let gui;
 
 
 const params = {
@@ -119,8 +119,7 @@ function init() {
     renderer.toneMappingExposure = Math.pow(1, 4.0);
     document.body.appendChild(renderer.domElement);
 
-    stats = new Stats();
-    container.appendChild(stats.dom);
+
 
 
 
@@ -223,7 +222,7 @@ function animate() {
 
     requestAnimationFrame(animate);
 
-    stats.begin();
+ 
 
     cameraP.updateMatrixWorld(true);
 
@@ -253,6 +252,6 @@ function animate() {
 
     composer.render();
 
-    stats.end();
+
 
 }
